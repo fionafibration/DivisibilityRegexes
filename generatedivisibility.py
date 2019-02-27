@@ -87,7 +87,7 @@ else:
         sys.exit()
 
     # Don't match empty strings or middle of strings
-    regex = '(?!$)(?<!\\d)'
+    regex = '(?!$|0)(?<!\\d)'
 
     # Python uses DEFINE, Ruby will use atomic group
     regex += '(?(DEFINE)' if format == 1 else '(?>'
@@ -135,9 +135,12 @@ else:
         # If we're using PCRE, we need to close an extra parenthesis and put alternations between state definitions
         if format == 2:
             regex += ')'
+            """
         # Only put an alternation if we are not the last state
         if fromstate != divisor - 1 and format == 2:
             regex += '|'
+            """
+
 
     regex += ')'
 
