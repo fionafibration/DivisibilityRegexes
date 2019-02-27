@@ -117,4 +117,3 @@ dmypy.json
 # JFLAP
 *.jar
 *.jff
-*.regex
