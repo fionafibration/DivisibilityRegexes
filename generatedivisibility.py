@@ -87,7 +87,7 @@ else:
         sys.exit()
 
     # Don't match empty strings or middle of strings
-    regex = '(?!$|0)(?<!\\d)'
+    regex = '(?!$|0[^0]$)(?<!\\d)'
 
     # Python uses DEFINE, Ruby will use atomic group
     regex += '(?(DEFINE)' if format == 1 else '(?>'
